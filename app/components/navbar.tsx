@@ -21,9 +21,20 @@ const Navbar = () => {
 						whileHover={{ scale: 1.02 }}
 						className="flex items-center gap-2 cursor-pointer origin-left"
 					>
-						<CodeXml color="#075ee5" className="w-10 h-10" />
-						<h1 className="text-3xl font-bold">Pablo Villacrés</h1>
-					</motion.div>
+							<CodeXml 
+								className="w-10 h-10" 
+								color="url(#gradient)" 
+							/>
+							<svg style={{ height: 0 }}>
+								<defs>
+									<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+										<stop offset="0%" style={{ stopColor: '#075ee5' }} />
+										<stop offset="50%" style={{ stopColor: '#a78bfa' }} />
+										<stop offset="100%" style={{ stopColor: '#075ee5' }} />
+									</linearGradient>
+								</defs>
+							</svg>
+						</motion.div>
 					<div className="flex gap-8 text-xl font-medium">
 						{NAV_ITEMS.map((item) => (
 							<motion.div key={item.id} whileHover={{ scale: 1.1 }}>

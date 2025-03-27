@@ -13,7 +13,7 @@ const Hero = () => {
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.5 }}
-			className="flex flex-col w-full justify-center items-center gap-20 py-16 px-10"
+			className="flex flex-col w-full justify-center items-center gap-20 py-16 px-10 min-h-screen"
 		>
 			<div className="flex gap-20 items-center">
 				<motion.div
@@ -42,7 +42,7 @@ const Hero = () => {
 				>
 					<div className="w-56 h-3 bg-blue-500" />
 					<h1 className="text-6xl font-bold text-white leading-tight">
-						I&apos;m Pablo, a<br />
+						I&apos;m Pablo Villacrés<br />
 						<motion.span
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
@@ -57,7 +57,7 @@ const Hero = () => {
 						</motion.span>
 					</h1>
 					<p className="text-gray-400 text-xl max-w-2xl">
-						Full Stack Developer with experience in web and mobile application
+						Experience in web and mobile application
 						development. Specialized in frontend, with knowledge in backend and
 						mobile development.
 					</p>

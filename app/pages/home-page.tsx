@@ -4,7 +4,7 @@ import Hero from "../components/hero";
 
 const Home = () => {
 	return (
-		<div className="flex flex-col min-h-screen bg-slate-950">
+		<div className="flex flex-col min-h-screen bg-gray-800">
 			{/* estructura de la pagina */}
 			{/* navbar */}
 			<Navbar />
