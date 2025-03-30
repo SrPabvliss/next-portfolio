@@ -3,7 +3,7 @@ import WorkCard from "./work-card";
 
 const WorkSection = () => {
 	return (
-		<div className="flex justify-between gap-8 px-80">
+		<div className="flex justify-between gap-8 w-full">
 			{workCards.map((card, index) => (
 				<WorkCard key={index} {...card} />
 			))}

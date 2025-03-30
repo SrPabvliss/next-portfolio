@@ -13,59 +13,60 @@ const Hero = () => {
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.5 }}
-			className="flex flex-col w-full justify-center items-center gap-20 py-16 px-10 min-h-screen"
+			className="w-full flex flex-col justify-center items-center bg-zinc-800 py-16 min-h-screen"
 		>
-			<div className="flex gap-20 items-center">
-				<motion.div
-					initial={{ opacity: 0, scale: 0.5 }}
-					animate={{ opacity: 1, scale: 1 }}
-					transition={{ duration: 0.5, delay: 0.2 }}
-					className="relative w-[500px] h-[500px] group"
-				>
-					<div className="absolute -inset-4 rounded-full blur-3xl bg-blue-600/30 transition-colors" />
-					<div className="relative w-full h-full rounded-full bg-gradient-to-br from-blue-600/20 to-purple-600/20 overflow-hidden flex items-center justify-center">
-						<Image
-							src={ProfilePicture}
-							alt="Hero"
-							width={450}
-							height={450}
-							className="pt-10 rounded-full object-cover hover:scale-102 transition-transform duration-300"
-						/>
-					</div>
-				</motion.div>
+			<div className="flex flex-col items-center gap-20 container mx-auto px-4">
+				<div className="flex flex-col md:flex-row gap-8 md:gap-20 items-center">
+					<motion.div
+						initial={{ opacity: 0, scale: 0.5 }}
+						animate={{ opacity: 1, scale: 1 }}
+						transition={{ duration: 0.5, delay: 0.2 }}
+						className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[700px] lg:h-[600px] group"
+					>
+						<div className="absolute -inset-4 rounded-3xl blur-3xl bg-blue-600/30 transition-colors" />
+						<div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 overflow-hidden flex items-center justify-center">
+							<Image
+								src={ProfilePicture}
+								alt="Hero"
+								width={600}
+								height={600}
+								className="pt-10 rounded-3xl object-cover hover:scale-102 transition-transform duration-300"
+							/>
+						</div>
+					</motion.div>
 
-				<motion.div
-					initial={{ opacity: 0, x: -20 }}
-					animate={{ opacity: 1, x: 0 }}
-					transition={{ duration: 0.5, delay: 0.4 }}
-					className="flex flex-col gap-6"
-				>
-					<div className="w-56 h-3 bg-blue-500" />
-					<h1 className="text-6xl font-bold text-white leading-tight">
-						I&apos;m Pablo Villacrés<br />
-						<motion.span
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							transition={{
-								delay: 0.5,
-								duration: 1.6,
-								ease: [0.4, 0, 0.2, 1],
-							}}
-							className="relative bg-gradient-to-r from-blue-500 via-purple-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient"
-						>
-							Software Developer
-						</motion.span>
-					</h1>
-					<p className="text-gray-400 text-xl max-w-2xl">
-						Experience in web and mobile application
-						development. Specialized in frontend, with knowledge in backend and
-						mobile development.
-					</p>
-					<SocialLinks />
-				</motion.div>
+					<motion.div
+						initial={{ opacity: 0, x: -20 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.5, delay: 0.4 }}
+						className="flex flex-col gap-6"
+					>
+						<div className="w-56 h-3 bg-blue-500" />
+						<h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
+							I&apos;m Pablo Villacrés
+							<br />
+							<motion.span
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								transition={{
+									delay: 0.5,
+									duration: 1.6,
+									ease: [0.4, 0, 0.2, 1],
+								}}
+								className="relative bg-gradient-to-r from-blue-500 via-purple-400 to-blue-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient"
+							>
+								Software Developer
+							</motion.span>
+						</h1>
+						<p className="text-gray-400 text-lg md:text-xl ">
+							Experience in web and mobile application development. Specialized
+							in frontend, with knowledge in backend and mobile development.
+						</p>
+						<SocialLinks />
+					</motion.div>
+				</div>
+				<WorkSection />
 			</div>
-
-			<WorkSection />
 		</motion.div>
 	);
 };
