@@ -22,7 +22,7 @@ export const PROJECTS_DATA: ProjectProps[] = [
 		title: "Development Dynamics",
 		description:
 			"DeFi platform development with real-time crypto data integration and interactive trading features.",
-		image: "/images/projects/30shots_so.png",
+		image: "/images/projects/gab-motors/month-view-processed.png",
 		technologies: ["React JS", "Web Development", "Web3", "Crypto"],
 		company: {
 			name: "GabMotors Agenda",
