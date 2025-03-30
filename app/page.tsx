@@ -3,6 +3,7 @@ import Home from "./pages/home-page";
 import Hero from "./components/hero";
 import Skills from "./components/skills";
 import Projects from "./components/projects";
+import LearningProjects from "./components/learning";
 
 const page = () => {
 	return (
@@ -10,6 +11,7 @@ const page = () => {
 			<Hero />
 			<Skills />
 			<Projects />
+			<LearningProjects />
 		</main>
 	);
 };
