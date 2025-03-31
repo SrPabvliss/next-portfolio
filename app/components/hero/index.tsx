@@ -21,7 +21,7 @@ const Hero = () => {
 						initial={{ opacity: 0, scale: 0.5 }}
 						animate={{ opacity: 1, scale: 1 }}
 						transition={{ duration: 0.5, delay: 0.2 }}
-						className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[700px] lg:h-[600px] group"
+						className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[650px] lg:h-[550px] group"
 					>
 						<div className="absolute -inset-4 rounded-3xl blur-3xl bg-blue-600/30 transition-colors" />
 						<div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-blue-600/20 to-purple-600/20 overflow-hidden flex items-center justify-center">

@@ -1,5 +1,4 @@
 import React from "react";
-import Home from "./pages/home-page";
 import Hero from "./components/hero";
 import Skills from "./components/skills";
 import Projects from "./components/projects";
