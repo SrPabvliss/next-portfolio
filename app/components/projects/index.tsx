@@ -16,7 +16,6 @@ const Projects = () => {
 		>
 			<div className="container mx-auto px-4">
 				<div className="grid grid-cols-2 gap-12">
-					{/* Left Column */}
 					<div className="flex flex-col gap-8">
 						<ProjectsHeader />
 						{PROJECTS_DATA.filter((_, index) => index % 2 === 1).map(
@@ -26,7 +25,6 @@ const Projects = () => {
 						)}
 					</div>
 
-					{/* Right Column */}
 					<div className="flex flex-col gap-8">
 						{PROJECTS_DATA.filter((_, index) => index % 2 === 0).map(
 							(project, index) => (

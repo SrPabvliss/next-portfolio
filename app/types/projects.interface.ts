@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { IconType } from "react-icons";
 
 export interface Company {
 	name: string;
@@ -6,10 +7,14 @@ export interface Company {
 }
 
 export interface ProjectProps {
+	id: string;
 	title: string;
 	description: string;
 	image: string;
 	technologies: string[];
-	company: Company;
+	company: {
+		name: string;
+		icon: ReactNode;
+	};
 	featured?: boolean;
 }

@@ -3,6 +3,7 @@ import { CodeIcon, NotepadText } from "lucide-react";
 
 export const PROJECTS_DATA: ProjectProps[] = [
 	{
+		id: "gendocs-v3",
 		title: "Universidad Técnica de Ambato",
 		description:
 			"Modern website development for a digital agency, featuring a clean design and smooth animations.",
@@ -19,6 +20,7 @@ export const PROJECTS_DATA: ProjectProps[] = [
 		},
 	},
 	{
+		id: "gab-motors",
 		title: "Development Dynamics",
 		description:
 			"DeFi platform development with real-time crypto data integration and interactive trading features.",
@@ -30,6 +32,7 @@ export const PROJECTS_DATA: ProjectProps[] = [
 		},
 	},
 	{
+		id: "macod",
 		title: "MACOD",
 		description:
 			"DeFi platform development with real-time crypto data integration and interactive trading features.",
@@ -41,6 +44,7 @@ export const PROJECTS_DATA: ProjectProps[] = [
 		},
 	},
 	{
+		id: "demisoft",
 		title: "Demisoft",
 		description:
 			"DeFi platform development with real-time crypto data integration and interactive trading features.",
