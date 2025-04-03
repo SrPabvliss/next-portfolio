@@ -1,53 +1,118 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion } from "@/app/components/motion";
 import { Challenge } from "@/app/types/project-detail.interface";
-import { CodeBlock } from "@/app/components/ui/code-block";
+import { AlertTriangle, Lightbulb, Code2, ChevronDown, ChevronUp } from "lucide-react";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-interface ProjectChallengesProps {
-  challenges: Challenge[];
+interface ChallengeCardProps {
+  challenge: Challenge;
+  index: number;
 }
 
-export const ProjectChallenges = ({ challenges }: ProjectChallengesProps) => {
+// Challenge card component with expandable code example
+const ChallengeCard = ({ challenge, index }: ChallengeCardProps) => {
+  const [codeExpanded, setCodeExpanded] = useState(false);
+  
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="bg-zinc-800/50 rounded-xl border border-white/10 overflow-hidden mb-12"
+    >
+      {/* Challenge Header */}
+      <div className="p-6 border-b border-white/5">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="p-2 rounded-lg bg-blue-500/20">
+            <AlertTriangle className="w-5 h-5 text-blue-400" />
+          </div>
+          <h3 className="text-xl font-bold text-white">{challenge.title}</h3>
+        </div>
+        
+        <p className="text-white/80 leading-relaxed">
+          {challenge.description}
+        </p>
+      </div>
+      
+      {/* Solution */}
+      <div className="p-6 bg-zinc-900/30">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="p-2 rounded-lg bg-green-500/20">
+            <Lightbulb className="w-5 h-5 text-green-400" />
+          </div>
+          <h4 className="text-lg font-semibold text-white">Solution</h4>
+        </div>
+        
+        <p className="text-white/80 leading-relaxed">
+          {challenge.solution}
+        </p>
+      </div>
+      
+      {/* Code Example (if present) */}
+      {challenge.codeExample && (
+        <div className="border-t border-white/5">
+          <button
+            onClick={() => setCodeExpanded(!codeExpanded)}
+            className="flex items-center justify-between w-full p-4 text-white/80 hover:text-white hover:bg-blue-500/10 transition-colors"
+          >
+            <div className="flex items-center gap-2">
+              <Code2 className="w-5 h-5" />
+              <span className="font-medium">Code Implementation</span>
+            </div>
+            {codeExpanded ? (
+              <ChevronUp className="w-5 h-5" />
+            ) : (
+              <ChevronDown className="w-5 h-5" />
+            )}
+          </button>
+          
+          {codeExpanded && (
+            <div className="p-4 bg-zinc-900">
+              <SyntaxHighlighter
+                language="typescript"
+                style={vscDarkPlus}
+                customStyle={{
+                  borderRadius: '0.5rem',
+                  margin: 0,
+                  fontSize: '0.9rem'
+                }}
+                showLineNumbers
+              >
+                {challenge.codeExample}
+              </SyntaxHighlighter>
+            </div>
+          )}
+        </div>
+      )}
+    </motion.div>
+  );
+};
+
+export default function ProjectChallengesSection({ challenges }: { challenges: Challenge[] }) {
   return (
     <section className="container mx-auto px-4">
       <motion.h2 
-        className="mb-12 text-center text-3xl font-bold"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
+        className="text-3xl md:text-4xl font-bold text-center mb-16"
       >
-        Challenges and Solutions
+        Challenges & Solutions
       </motion.h2>
-
-      <div className="space-y-12">
+      
+      <div>
         {challenges.map((challenge, index) => (
-          <motion.div
-            key={index}
-            className="rounded-lg border p-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="mb-4 text-2xl font-bold">{challenge.title}</h3>
-            <p className="mb-6 text-gray-600">{challenge.description}</p>
-            
-            <div className="mb-6">
-              <h4 className="mb-2 text-xl font-semibold">Solution</h4>
-              <p className="text-gray-600">{challenge.solution}</p>
-            </div>
-
-            {challenge.codeExample && (
-              <div>
-                <h4 className="mb-2 text-xl font-semibold">Code Example</h4>
-                <CodeBlock code={challenge.codeExample} language="typescript" />
-              </div>
-            )}
-          </motion.div>
+          <ChallengeCard 
+            key={index} 
+            challenge={challenge} 
+            index={index} 
+          />
         ))}
       </div>
     </section>
   );
-}; 
+}

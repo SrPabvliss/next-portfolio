@@ -1,66 +1,137 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/app/components/motion";
 import { TechnicalStack } from "@/app/types/project-detail.interface";
-import { IconType } from "react-icons";
+import { 
+  Code, 
+  Server, 
+  Terminal,
+  Layers,
+  Database,
+  Braces,
+  Workflow,
+  RefreshCw,
+  Globe,
+  Shield
+} from "lucide-react";
 
-interface StackSectionProps {
-  title: string;
-  technologies: {
-    name: string;
-    description: string;
-    icon?: IconType;
-  }[];
-}
+// Tech icon mapping using Lucide icons instead of react-icons
+// This avoids the import issues and provides a consistent look
+const getTechIcon = (techName: string) => {
+  const techMap: Record<string, JSX.Element> = {
+    "Next.js": <Globe className="w-6 h-6 text-blue-400" />,
+    "React.js": <RefreshCw className="w-6 h-6 text-blue-400" />,
+    "TypeScript": <Braces className="w-6 h-6 text-blue-400" />,
+    "Tailwind CSS": <Layers className="w-6 h-6 text-blue-400" />,
+    "Node.js": <Server className="w-6 h-6 text-blue-400" />,
+    "PostgreSQL": <Database className="w-6 h-6 text-blue-400" />,
+    "NestJS": <Terminal className="w-6 h-6 text-blue-400" />,
+    "Prisma": <Database className="w-6 h-6 text-blue-400" />,
+    "Docker": <Workflow className="w-6 h-6 text-blue-400" />,
+    "JWT": <Shield className="w-6 h-6 text-blue-400" />,
+    // Add more mappings as needed
+    // Default icon for technologies without a specific mapping
+    "default": <Code className="w-6 h-6 text-blue-400" />
+  };
+  
+  return techMap[techName] || techMap["default"];
+};
 
-const StackSection = ({ title, technologies }: StackSectionProps) => {
+// Component for a single technology card
+const TechCard = ({ 
+  name, 
+  description 
+}: { 
+  name: string; 
+  description: string;
+}) => {
   return (
-    <div className="space-y-6">
-      <h3 className="text-2xl font-bold">{title}</h3>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4 }}
+      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+      className="bg-zinc-800 border border-white/5 rounded-xl p-6 hover:border-blue-500/30 transition-colors"
+    >
+      <div className="flex items-center gap-4 mb-4">
+        {getTechIcon(name)}
+        <h4 className="text-xl font-bold text-white">{name}</h4>
+      </div>
+      <p className="text-white/70">{description}</p>
+    </motion.div>
+  );
+};
+
+// Component for technology category
+const TechCategory = ({ 
+  title, 
+  technologies, 
+  icon 
+}: { 
+  title: string; 
+  technologies: Array<{ name: string; description: string; }>; 
+  icon: JSX.Element;
+}) => {
+  return (
+    <div className="mb-16">
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="flex items-center gap-3 mb-8"
+      >
+        <div className="p-3 rounded-lg bg-blue-500/20">
+          {icon}
+        </div>
+        <h3 className="text-2xl font-bold text-white">{title}</h3>
+      </motion.div>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {technologies.map((tech, index) => (
-          <motion.div
+          <TechCard 
             key={index}
-            className="rounded-lg border p-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-          >
-            <div className="mb-4 flex items-center gap-4">
-              {/* <tech.icon className="h-8 w-8 text-primary" /> */}
-              <h4 className="text-xl font-semibold">{tech.name}</h4>
-            </div>
-            <p className="text-gray-600">{tech.description}</p>
-          </motion.div>
+            name={tech.name}
+            description={tech.description}
+          />
         ))}
       </div>
     </div>
   );
 };
 
-interface ProjectStackProps {
-  stack: TechnicalStack;
-}
-
-export const ProjectStack = ({ stack }: ProjectStackProps) => {
+export default function ProjectStack({ stack }: { stack: TechnicalStack }) {
   return (
     <section className="container mx-auto px-4">
       <motion.h2 
-        className="mb-12 text-center text-3xl font-bold"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
+        className="text-3xl md:text-4xl font-bold text-center mb-16"
       >
         Technical Stack
       </motion.h2>
-
-      <div className="space-y-12">
-        <StackSection title="Frontend" technologies={stack.frontend} />
-        <StackSection title="Backend" technologies={stack.backend} />
-        <StackSection title="DevOps" technologies={stack.devOps} />
-      </div>
+      
+      {/* Frontend Stack */}
+      <TechCategory 
+        title="Frontend Technologies" 
+        technologies={stack.frontend} 
+        icon={<Layers className="w-6 h-6 text-blue-400" />}
+      />
+      
+      {/* Backend Stack */}
+      <TechCategory 
+        title="Backend Technologies" 
+        technologies={stack.backend} 
+        icon={<Server className="w-6 h-6 text-blue-400" />}
+      />
+      
+      {/* DevOps Stack */}
+      <TechCategory 
+        title="DevOps & Infrastructure" 
+        technologies={stack.devOps} 
+        icon={<Terminal className="w-6 h-6 text-blue-400" />}
+      />
     </section>
   );
-}; 
+}

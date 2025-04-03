@@ -1,94 +1,144 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "@/app/components/motion";
 import { LearningOutcome } from "@/app/types/project-detail.interface";
+import { BookOpen, Code, Lightbulb, Zap } from "lucide-react";
 
-interface ProjectLearningsProps {
+// Learning Card Component
+const LearningCard = ({ 
+  title, 
+  description, 
+  bulletPoints, 
+  index
+}: { 
+  title: string; 
+  description: string; 
+  bulletPoints?: string[]; 
+  index: number;
+}) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      className="bg-zinc-800/50 rounded-xl border border-white/10 p-6 hover:border-blue-500/30 transition-colors"
+    >
+      <h4 className="text-xl font-bold text-white mb-3">{title}</h4>
+      <p className="text-white/70 mb-4">{description}</p>
+      
+      {bulletPoints && bulletPoints.length > 0 && (
+        <ul className="space-y-2">
+          {bulletPoints.map((point, pointIndex) => (
+            <li key={pointIndex} className="flex items-start gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5"></span>
+              <span className="text-white/70 text-sm">{point}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+    </motion.div>
+  );
+};
+
+// Section Component
+const LearningSection = ({ 
+  title, 
+  items, 
+  icon 
+}: { 
+  title: string; 
+  items: any[]; 
+  icon: JSX.Element;
+}) => {
+  return (
+    <div className="mb-16">
+      <motion.div 
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="flex items-center gap-3 mb-8"
+      >
+        <div className="p-3 rounded-lg bg-blue-500/20">
+          {icon}
+        </div>
+        <h3 className="text-2xl font-bold text-white">{title}</h3>
+      </motion.div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {items.map((item, index) => (
+          <LearningCard
+            key={index}
+            title={item.title}
+            description={item.description}
+            bulletPoints={item.bulletPoints}
+            index={index}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default function ProjectLearningsSection({ 
+  learnings 
+}: { 
   learnings: LearningOutcome;
-}
-
-export const ProjectLearnings = ({ learnings }: ProjectLearningsProps) => {
+}) {
   return (
     <section className="container mx-auto px-4">
       <motion.h2 
-        className="mb-12 text-center text-3xl font-bold"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
+        className="text-3xl md:text-4xl font-bold text-center mb-16"
       >
-        Learnings
+        Learning Outcomes
       </motion.h2>
-
-      <div className="grid gap-12 md:grid-cols-2">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="mb-6 text-2xl font-bold">New skills</h3>
-          <div className="space-y-8">
-            {learnings.newSkills.map((skill, index) => (
-              <div key={index} className="rounded-lg border p-6">
-                <h4 className="mb-4 text-xl font-semibold">{skill.title}</h4>
-                <p className="mb-4 text-gray-600">{skill.description}</p>
-                <ul className="space-y-2">
-                  {skill.bulletPoints.map((point, pointIndex) => (
-                    <li key={pointIndex} className="flex items-start gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary" />
-                      <p>{point}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="mb-6 text-2xl font-bold">Technichal lessons</h3>
-          <div className="space-y-8">
-            {learnings.technicalLessons.map((lesson, index) => (
-              <div key={index} className="rounded-lg border p-6">
-                <h4 className="mb-4 text-xl font-semibold">{lesson.title}</h4>
-                <p className="mb-4 text-gray-600">{lesson.description}</p>
-                <ul className="space-y-2">
-                  {lesson.bulletPoints.map((point, pointIndex) => (
-                    <li key={pointIndex} className="flex items-start gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary" />
-                      <p>{point}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-
+      
+      {/* New Skills */}
+      <LearningSection
+        title="New Skills Acquired"
+        items={learnings.newSkills}
+        icon={<BookOpen className="w-6 h-6 text-blue-400" />}
+      />
+      
+      {/* Technical Lessons */}
+      <LearningSection
+        title="Technical Lessons"
+        items={learnings.technicalLessons}
+        icon={<Code className="w-6 h-6 text-blue-400" />}
+      />
+      
+      {/* Areas for Improvement */}
       <motion.div
-        className="mt-12"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <h3 className="mb-6 text-2xl font-bold">Areas of improvement</h3>
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="flex items-center gap-3 mb-8">
+          <div className="p-3 rounded-lg bg-blue-500/20">
+            <Zap className="w-6 h-6 text-blue-400" />
+          </div>
+          <h3 className="text-2xl font-bold text-white">Areas for Improvement</h3>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {learnings.areasForImprovement.map((area, index) => (
-            <div key={index} className="rounded-lg border p-6">
-              <h4 className="mb-4 text-xl font-semibold">{area.title}</h4>
-              <p className="text-gray-600">{area.description}</p>
-            </div>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="bg-zinc-800/50 rounded-xl border border-white/10 p-6"
+            >
+              <h4 className="text-xl font-bold text-white mb-3">{area.title}</h4>
+              <p className="text-white/70">{area.description}</p>
+            </motion.div>
           ))}
         </div>
       </motion.div>
     </section>
   );
-}; 
+}
