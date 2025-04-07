@@ -5,6 +5,7 @@ import { motion } from "@/app/components/motion";
 import ProjectsHeader from "./projects-header";
 import { PROJECTS_DATA } from "@/app/constants/projects";
 import ProjectCard from "./project-card";
+import ViewAllProjectsCard from "./view-all-card";
 
 const Projects = () => {
 	return (
@@ -28,9 +29,12 @@ const Projects = () => {
 					<div className="flex flex-col gap-8">
 						{PROJECTS_DATA.filter((_, index) => index % 2 === 0).map(
 							(project, index) => (
-								<ProjectCard key={index} {...project} />
+								<>
+									<ProjectCard key={index} {...project} />
+								</>
 							)
 						)}
+						<ViewAllProjectsCard />
 					</div>
 				</div>
 			</div>

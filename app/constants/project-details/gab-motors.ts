@@ -1,25 +1,5 @@
 import { DetailedProject } from "@/app/types/project-detail.interface";
-import { 
-  Bell, 
-  Layers, 
-  FileCode, 
-  Boxes, 
-} from "lucide-react";
-import { BsTools } from "react-icons/bs";
-import { 
-  SiNextdotjs, 
-  SiTypescript, 
-  SiTailwindcss,
-  SiReactquery,
-  SiSocketdotio,
-  SiFirebase,
-  SiNestjs,
-  SiPrisma,
-  SiPostgresql,
-  SiJsonwebtokens,
-  SiDocker,
-  SiGithubactions
-} from "react-icons/si";
+
 
 export const GAB_MOTORS_PROJECT: DetailedProject = {
   id: "gab-motors",
@@ -96,96 +76,78 @@ export const GAB_MOTORS_PROJECT: DetailedProject = {
       {
         name: "Next.js",
         description: "React framework for hybrid rendering (SSR/CSR)",
-        // icon: SiNextdotjs
       },
       {
         name: "TypeScript",
         description: "Static typing for robust development",
-        // icon: SiTypescript
       },
       {
         name: "Tailwind CSS",
         description: "CSS utility framework for responsive design",
-        // icon: SiTailwindcss
       },
       {
         name: "Shadcn UI",
         description: "Reusable components for the interface",
-        // icon: Layers
       },
       {
         name: "React Query",
         description: "State management and server requests",
-        // icon: SiReactquery
       },
       {
         name: "Socket.io-client",
         description: "Real-time communication",
-        // icon: SiSocketdotio
       },
       {
         name: "Service Workers",
         description: "Support for push notifications",
-        // icon: Bell
       },
       {
         name: "Firebase",
         description: "Integration for messaging and notifications",
-        // icon: SiFirebase
       },
       {
         name: "React Hook Form",
         description: "Efficient form handling",
-        // icon: FileCode
       }
     ],
     backend: [
       {
         name: "NestJS",
         description: "Modular Node.js framework with clean architecture",
-        // icon: SiNestjs
       },
       {
         name: "Prisma",
         description: "ORM for database interaction",
-        // icon: SiPrisma
       },
       {
         name: "PostgreSQL",
         description: "Relational database",
-        // icon: SiPostgresql
       },
       {
         name: "Socket.io",
         description: "Bidirectional real-time communication",
-        // icon: SiSocketdotio
       },
       {
         name: "JWT",
         description: "Authentication and access control",
-        // icon: SiJsonwebtokens
       },
       {
         name: "Firebase Admin",
         description: "Push notification delivery",
-        // icon: SiFirebase
       },
       {
         name: "Docker",
         description: "Containerization for consistent deployment",
-        // icon: SiDocker
       }
     ],
     devOps: [
       {
         name: "GitHub Actions",
         description: "Continuous integration and deployment",
-        // icon: SiGithubactions
       },
       {
         name: "Docker Compose",
         description: "Container orchestration",
-        // icon: Boxes
       }
     ],
   },
@@ -487,12 +449,8 @@ export class AppointmentsGateway {
   
   company: {
     name: "GabMotors",
-    // icon: BsTools,
     logo: "/images/projects/gab-motors/month-view-processed.png"
   },
   
-  links: {
-    demo: "https://gabmotors-schedule.com",
-    case_study: "/projects/gab-motors/case-study"
-  }
+
 };

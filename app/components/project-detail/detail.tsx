@@ -14,12 +14,9 @@ import ProjectChallenges from "./project-challenges";
 import ProjectLearnings from "./project-learning";
 import ProjectGallery from "./project-gallery";
 
-// Sub-components
-
 export default function ProjectDetailComponent({ project }: { project: DetailedProject }) {
   return (
     <div className="min-h-screen bg-zinc-900 text-white">
-      {/* Hero Section with Gradient Overlay */}
       <div className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80 mix-blend-multiply z-10" />
         {project.visualContent.mainImage && (
