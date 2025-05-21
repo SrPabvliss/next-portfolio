@@ -1,55 +1,56 @@
 import { ProjectProps } from "@/app/types/projects.interface";
-import { CodeIcon, NotepadText } from "lucide-react";
+import { CodeIcon, NotepadText, FileText, Truck } from "lucide-react";
 
 export const PROJECTS_DATA: ProjectProps[] = [
 	{
 		id: "gendocs-v3",
 		title: "Universidad Técnica de Ambato",
 		description:
-			"Modern website development for a digital agency, featuring a clean design and smooth animations.",
-		image: "/images/projects/30shots_so.png",
+			"Comprehensive document management system for academic administration, streamlining degree certificate generation and administrative processes.",
+		image: "/images/projects/gendocs/main-image.png",
 		technologies: [
-			"React JS",
-			"Web Development",
-			"TailwindCSS",
-			"Framer Motion",
+			"Next.js",
+			"TypeScript",
+			"Material UI",
+			"Zustand",
+			"NestJS",
 		],
 		company: {
 			name: "Gendocs V3",
-			icon: <NotepadText className="w-6 h-6 text-white" />,
+			icon: <FileText className="w-6 h-6 text-white" />,
 		},
 	},
 	{
 		id: "gab-motors",
 		title: "Development Dynamics",
 		description:
-			"DeFi platform development with real-time crypto data integration and interactive trading features.",
+			"Auto shop management system with interactive calendar, appointment scheduling, and real-time notifications for mechanic workflow optimization.",
 		image: "/images/projects/gab-motors/month-view-processed.png",
-		technologies: ["React JS", "Web Development", "Web3", "Crypto"],
+		technologies: ["Next.js", "TypeScript", "TailwindCSS", "Socket.io"],
 		company: {
 			name: "GabMotors Agenda",
 			icon: <CodeIcon className="w-6 h-6 text-white" />,
 		},
 	},
 	{
-		id: "macod",
-		title: "MACOD",
+		id: "translogi",
+		title: "MACOD SAS",
 		description:
-			"DeFi platform development with real-time crypto data integration and interactive trading features.",
-		image: "/images/projects/30shots_so.png",
-		technologies: ["React JS", "Web Development", "Web3", "Crypto"],
+			"Mobile platform that connects cargo owners with transporters featuring real-time tracking, price negotiation, and secure verification.",
+		image: "/images/projects/translogi/main-image.png",
+		technologies: ["React Native", "Node.js", "Expo", "PostgreSQL"],
 		company: {
-			name: "Translogi App",
-			icon: <CodeIcon className="w-6 h-6 text-white" />,
+			name: "TransLogi App",
+			icon: <Truck className="w-6 h-6 text-white" />,
 		},
 	},
 	{
 		id: "demisoft",
 		title: "Demisoft",
 		description:
-			"DeFi platform development with real-time crypto data integration and interactive trading features.",
+			"Diesel mechanical workshop management system with digital signatures, PDF report generation, and QR codes for streamlined workflows.",
 		image: "/images/projects/30shots_so.png",
-		technologies: ["React JS", "Web Development", "Web3", "Crypto"],
+		technologies: ["Next.js", "TypeScript", "TailwindCSS", "React Query"],
 		company: {
 			name: "Dizasa Work Orders App",
 			icon: <CodeIcon className="w-6 h-6 text-white" />,

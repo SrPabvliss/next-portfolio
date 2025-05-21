@@ -122,13 +122,13 @@ export default function ProjectTeam({
               className="bg-zinc-800/70 rounded-xl overflow-hidden border border-white/5 hover:border-blue-500/30 transition-all group"
             >
               {/* Member Image */}
-              <div className="relative w-full h-44 overflow-hidden">
+              <div className="relative w-full h-56 overflow-hidden">
                 {member.image ? (
                   <Image
                     src={member.image as string}
                     alt={member.name}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-contain transition-transform duration-500 group-hover:scale-105 pt-2"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-blue-900/20">

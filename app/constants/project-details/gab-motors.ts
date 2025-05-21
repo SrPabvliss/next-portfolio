@@ -30,7 +30,7 @@ export const GAB_MOTORS_PROJECT: DetailedProject = {
         "Responsive view adapted to mobile and desktop devices",
         "Drag and drop functionality for appointment reassignment"
       ],
-      image: "/images/projects/gab-motors/month-view-processed.png",
+      image: "/optimized-images/projects/gab-motors/feat-interactive-calendar-medium.webp",
       imageAlt: "Interactive calendar showing monthly view with color-coded appointments"
     },
     {
@@ -42,7 +42,7 @@ export const GAB_MOTORS_PROJECT: DetailedProject = {
         "Document technical details of each intervention",
         "Generate complete service histories by vehicle"
       ],
-      image: "/images/projects/gab-motors/month-view-processed.png",
+      image: "/optimized-images/projects/gab-motors/work-tracking-medium.webp",
       imageAlt: "Inspection tracking panel showing vehicle service details and status"
     },
     {
@@ -54,7 +54,7 @@ export const GAB_MOTORS_PROJECT: DetailedProject = {
         "Notifying mechanics when they are assigned new work",
         "Informing administrators about completed inspections"
       ],
-      image: "/images/projects/gab-motors/month-view-processed.png",
+      image: "/optimized-images/projects/gab-motors/notifications-medium.webp",
       imageAlt: "Push notification interface showing alerts for mechanics and administrators"
     },
     {
@@ -66,7 +66,7 @@ export const GAB_MOTORS_PROJECT: DetailedProject = {
         "Advanced search of historical inspections",
         "User and permission control according to roles (administrator, secretary, mechanic)"
       ],
-      image: "/images/projects/gab-motors/month-view-processed.png",
+      image: "/optimized-images/projects/gab-motors/v3-administrative-creation-medium.webp",
       imageAlt: "Administrative dashboard showing management controls and user roles"
     }
   ],
@@ -179,20 +179,20 @@ export const GAB_MOTORS_PROJECT: DetailedProject = {
           "Push notification implementation",
           "WebSocket integration"
         ],
-        image: "/images/projects/gab-motors/month-view-processed.png"
+        image: "/optimized-images/profile-picture-medium.webp"
       },
       {
-        name: "Frontend Developer",
+        name: "Patricio Jimenez",
         role: "UI Developer",
         responsibilities: [
           "UI component implementation",
           "Form validation",
           "Responsive design"
         ],
-        image: "/images/projects/gab-motors/month-view-processed.png"
+        image: "/optimized-images/patrick-profile-2-medium.webp"
       },
       {
-        name: "Backend Lead",
+        name: "Sebastián Camino",
         role: "Backend Architect",
         responsibilities: [
           "API design",
@@ -200,17 +200,17 @@ export const GAB_MOTORS_PROJECT: DetailedProject = {
           "Authentication system",
           "WebSocket server"
         ],
-        image: "/images/projects/gab-motors/month-view-processed.png"
+        image: "/optimized-images/sebas-profile-medium.webp"
       },
       {
-        name: "Backend Developer",
+        name: "Jair Mera",
         role: "API Developer",
         responsibilities: [
           "API implementation",
           "Data validation",
           "Firebase integration"
         ],
-        image: "/images/projects/gab-motors/month-view-processed.png"
+        image: "/optimized-images/jair-profile-medium.webp"
       }
     ],
   },
@@ -437,13 +437,23 @@ export class AppointmentsGateway {
   },
   
   visualContent: {
-    mainImage: "/images/projects/gab-motors/month-view-processed.png",
+    mainImage: "/optimized-images/projects/gab-motors/main-medium.avif",
     screenshots: [
-      "/images/projects/gab-motors/month-view-processed.png",
-      "/images/projects/gab-motors/month-view-processed.png",
-      "/images/projects/gab-motors/month-view-processed.png",
-      "/images/projects/gab-motors/month-view-processed.png",
-      "/images/projects/gab-motors/month-view-processed.png"
+      "/optimized-images/projects/gab-motors/gallery/gm-1-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-2-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-3-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-4-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-5-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-6-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-7-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-8-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-9-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-10-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-11-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-12-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-13-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-14-medium.avif",
+      "/optimized-images/projects/gab-motors/gallery/gm-15-medium.avif",
     ]
   },
   
