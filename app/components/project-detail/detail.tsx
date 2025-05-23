@@ -121,7 +121,7 @@ export default function ProjectDetailComponent({ project }: { project: DetailedP
             whileTap={{ scale: 0.98 }}
           >
             <Link
-              href="/projects"
+              href="/#projects"
               className="px-8 py-3 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-medium border border-white/10 transition-colors"
             >
               Back to Projects
