@@ -1,5 +1,5 @@
 import { WorkCardProps } from "@/app/types/hero.interface";
-import { useRouter } from "next/router";
+
 
 const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, link: string) => {
   e.preventDefault();
