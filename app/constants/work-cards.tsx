@@ -1,4 +1,13 @@
 import { WorkCardProps } from "@/app/types/hero.interface";
+import { useRouter } from "next/router";
+
+const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, link: string) => {
+  e.preventDefault();
+  const target = document.querySelector(link);
+  if (target) {
+    target.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const workCards: WorkCardProps[] = [
 	{
@@ -7,6 +16,7 @@ const workCards: WorkCardProps[] = [
 			"Take a look at my projects and see how I can help you with your next project.",
 		ctaText: "BROWSE PORTFOLIO",
 		link: "#projects",
+		onClick: (e) => handleScroll(e, "#projects"),
 	},
 	{
 		title: "ABOUT ME",

@@ -5,6 +5,7 @@ export interface WorkCardProps {
 	description: string;
 	ctaText: string;
 	link?: string;
+	onClick?: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 }
 
 export interface SocialLinkProps {

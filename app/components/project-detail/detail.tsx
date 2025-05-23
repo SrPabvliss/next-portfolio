@@ -35,7 +35,7 @@ export default function ProjectDetailComponent({ project }: { project: DetailedP
         
         <div className="absolute inset-0 flex flex-col justify-end z-30 p-8 container mx-auto">
           <Link
-            href="/projects"
+            href="/#projects"
             className="flex items-center gap-2 text-white/90 hover:text-white mb-8 w-fit group transition-colors"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />

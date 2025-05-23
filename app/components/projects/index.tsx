@@ -15,26 +15,24 @@ const Projects = () => {
 			transition={{ duration: 0.5 }}
 			className="w-full bg-zinc-800 py-24"
 		>
-			<div className="container mx-auto px-4">
+			<div id="projects" className="container mx-auto px-4">
 				<div className="grid grid-cols-2 gap-12">
-					<div className="flex flex-col gap-8">
+					<div  className="flex flex-col gap-8">
 						<ProjectsHeader />
 						{PROJECTS_DATA.filter((_, index) => index % 2 === 1).map(
-							(project, index) => (
-								<ProjectCard key={index} {...project} />
+							(project) => (
+								<ProjectCard key={project.id} {...project} />
 							)
 						)}
 					</div>
 
 					<div className="flex flex-col gap-8">
 						{PROJECTS_DATA.filter((_, index) => index % 2 === 0).map(
-							(project, index) => (
-								<>
-									<ProjectCard key={index} {...project} />
-								</>
+							(project) => (
+								<ProjectCard key={project.id} {...project} />
 							)
 						)}
-						<ViewAllProjectsCard />
+						{/*<ViewAllProjectsCard />*/}
 					</div>
 				</div>
 			</div>

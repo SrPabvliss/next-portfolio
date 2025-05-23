@@ -12,6 +12,7 @@ const Home = () => {
 			<Hero />
 			{/* about */}
 			{/* skills */}
+			{/* portfolio/projects section anchor */}	
 			{/* projects */}
 			{/* contact */}
 			{/* footer */}

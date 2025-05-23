@@ -43,7 +43,7 @@ export const PROJECTS_DATA: ProjectProps[] = [
 			name: "TransLogi App",
 			icon: <Truck className="w-6 h-6 text-white" />,
 		},
-	},
+	},/*
 	{
 		id: "demisoft",
 		title: "Demisoft",
@@ -55,5 +55,5 @@ export const PROJECTS_DATA: ProjectProps[] = [
 			name: "Dizasa Work Orders App",
 			icon: <CodeIcon className="w-6 h-6 text-white" />,
 		},
-	},
+	},*/
 ];
