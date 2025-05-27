@@ -543,13 +543,23 @@ export class OtpService {
   },
   
   visualContent: {
-    mainImage: "/images/projects/translogi/main-image-4.png",
+    mainImage: "/optimized-images/projects/translogi/main-image-4-medium.webp",
     screenshots: [
-      "/images/projects/translogi/screenshot-1.png",
-      "/images/projects/translogi/screenshot-2.png",
-      "/images/projects/translogi/screenshot-3.png",
-      "/images/projects/translogi/screenshot-4.png",
-      "/images/projects/translogi/screenshot-5.png"
+      "/optimized-images/projects/translogi/gallery/tl-1-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-2-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-3-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-4-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-5-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-6-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-7-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-8-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-9-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-10-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-11-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-12-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-13-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-14-medium.webp",
+      "/optimized-images/projects/translogi/gallery/tl-15-medium.webp",
     ]
   },
   
